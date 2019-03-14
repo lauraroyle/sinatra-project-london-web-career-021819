@@ -1,0 +1,29 @@
+<h1>Update User</h1>
+
+<form action="/users/<%=@user.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Name:</label>
+
+  <br>
+
+  <input type="text" name="user[name]" id="name" value="<%=@user.name%>">
+
+  <br>
+
+  <label>Choose a restaurant:</label>
+
+  <br>
+
+  <%@restaurants.each do |restaurant|%>
+    <input type="checkbox" name="user[restaurant_id][]" id="<%= restaurant.id%>" value="<%=restaurant.id%>" <%='checked' if @user.restaurants.include?(restaurant) %>><%=restaurant.name%></input>
+  <%end%>
+
+  <br>
+
+  <label>and/or, create a new restaurant:</label>
+  <br>
+  <label>name:</label>
+    <input  type="text" name="restaurant[name]" id="restaurant_name"></input>
+  <br>
+  <input type="submit" value="Update Restaurant">
+</form>

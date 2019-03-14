@@ -1,0 +1,14 @@
+
+<% @restaurants.each do |r| %>
+  <ol>
+    <li>
+      <p><%= r.name %> </p>
+    </li>
+    <li>
+      <p><%= r.rating %> </p>
+    </li>
+    <li>
+      <p><%= r.address %> </p>
+    </li>
+  </ol>
+  <%end%>
